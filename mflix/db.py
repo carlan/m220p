@@ -173,17 +173,7 @@ def build_query_sort_project(filters):
         elif "cast" in filters:
             query = {"cast": {"$in": filters["cast"]}}
         elif "genres" in filters:
-
-            """
-            Ticket: Text and Subfield Search
-
-            Given a genre in the "filters" object, construct a query that
-            searches MongoDB for movies with that genre.
-            """
-
-            # TODO: Text and Subfield Search
-            # Construct a query that will search for the chosen genre.
-            query = {}
+            query = {'genres': {'$in': filters['genres']}}
 
     return query, sort, project
 
