@@ -388,7 +388,7 @@ def add_user(name, email, hashedpw):
         # Insert a user with the "name", "email", and "password" fields.
         # TODO: Durable Writes
         # Use a more durable Write Concern for this operation.
-        db.users.insert_one({
+        db.users.with_options(write_concern=WriteConcern(w=2)).insert_one({
             "name": name,
             "email": email,
             "password": hashedpw
