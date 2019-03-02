@@ -290,9 +290,8 @@ def get_movie(id):
 
         return None
 
-    except Exception as e:
-        return {}
-
+    except (InvalidId) as _:
+        return None
 
 def get_all_genres():
     """
